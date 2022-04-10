@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.daou.kr.mapper.TblUserMapper">
+    <resultMap id="logindto" type="com.daou.kr.dto.LoginDto">
+        <result property="usercd" column="usercd"/>
+        <result property="username" column="username"/>
+        <result property="isstilluser" column="isstilluser"/>
+    </resultMap>
+
+    <select id="selectAllUser" resultMap="logindto">
+        SELECT usercd
+             , username
+             , isstilluser
+          FROM tbl_user
+    </select>
+</mapper>

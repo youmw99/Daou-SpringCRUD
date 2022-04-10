@@ -1,15 +1,22 @@
 package com.daou.kr.service;
 
-import org.springframework.stereotype.Component;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.daou.kr.dto.LoginDto;
+import com.daou.kr.mapper.TblUserMapper;
 
-@Component
+@Service
 public class LoginService {
-
-	public void login(LoginDto loginDto) {
-		// TODO Auto-generated method stub
-		
+	
+	@Autowired
+	TblUserMapper tblUserMapper;
+	
+	public boolean checkUser() {
+		List<LoginDto> list = tblUserMapper.selectAllUser();
+		return false;
 	}
 
 }

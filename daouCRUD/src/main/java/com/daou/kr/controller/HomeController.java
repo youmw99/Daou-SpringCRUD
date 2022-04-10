@@ -35,6 +35,9 @@ public class HomeController {
 
 	@PostMapping("/login")
 	public String login(LoginDto loginDto) throws IOException {
-		return "redirect:board";
+		if(loginService.checkUser()) {
+			return "redirect:board";
+		}
+		return "content/error";
 	}
 }
