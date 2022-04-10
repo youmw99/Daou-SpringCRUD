@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default_layout}">
+
+<head>
+	<title>Daou홈</title>
+	<script th:src="@{/js/home.js}"></script>
+</head>
+
+<body>
+	<th:block layout:fragment="header" th:include="@{/fragments/header}"></th:block>
+	<div layout:fragment="content" class="content">
+		<div class="col-lg-6">
+			<div class="login-registration-style-2 mt-50">
+				<h1 class="heading-4 font-weight-500 title">Daou 게시판 과제</h1>
+				<div class="login-registration-form pt-10">
+					<form action="/login" method="post" id="loginForm">
+						<div class="single-form form-default form-border">
+							<label>ID를 입력해주세요</label>
+							<div class="form-input">
+								<input type="text" th:field="*{logindto.usercd}" placeholder="nohdabin@daou.co.jp">
+								<i class="mdi mdi-email"></i>
+							</div>
+						</div>
+						<div class="single-form">
+							<button type="submit" form="loginForm" class="main-btn primary-btn" >Signin</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<th:block layout:fragment="footer" th:include="@{/fragments/footer}"></th:block>
+
+	<body>
+
+</html>
