@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.daou.kr.dto.LoginDto;
 import com.daou.kr.service.LoginService;
@@ -34,8 +35,10 @@ public class HomeController {
 	}
 
 	@PostMapping("/login")
-	public String login(LoginDto loginDto) throws IOException {
-		if(loginService.checkUser()) {
+	public String login(LoginDto loginDto,RedirectAttributes redirect) throws IOException {
+		if(loginService.checkUser(loginDto)) {
+			
+			redirect.addAttribute("username",loginService.getUserName(loginDto));
 			return "redirect:board";
 		}
 		return "content/error";

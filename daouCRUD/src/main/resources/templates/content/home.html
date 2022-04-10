@@ -8,7 +8,9 @@
 </head>
 
 <body>
-	<th:block layout:fragment="header" th:include="@{/fragments/header}"></th:block>
+	<th:block layout:fragment="header" th:include="@{/fragments/header}">
+	<h1>추가로 정의한 부분</h1>
+	</th:block>
 	<div layout:fragment="content" class="content">
 		<div class="col-lg-6">
 			<div class="login-registration-style-2 mt-50">
@@ -18,7 +20,7 @@
 						<div class="single-form form-default form-border">
 							<label>ID를 입력해주세요</label>
 							<div class="form-input">
-								<input type="text" th:field="*{logindto.username}" placeholder="nohdabin@daou.co.jp">
+								<input type="text" th:field="*{logindto.usercd}" placeholder="nohdabin@daou.co.jp">
 								<i class="mdi mdi-email"></i>
 							</div>
 						</div>

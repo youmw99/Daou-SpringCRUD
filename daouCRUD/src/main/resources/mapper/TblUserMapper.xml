@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.daou.kr.mapper.TblUserMapper">
-    <resultMap id="logindto" type="com.daou.kr.dto.LoginDto">
-        <result property="usercd" column="usercd"/>
-        <result property="username" column="username"/>
-        <result property="isstilluser" column="isstilluser"/>
-    </resultMap>
 
-    <select id="selectAllUser" resultMap="logindto">
-        SELECT usercd
-             , username
-             , isstilluser
-          FROM tbl_user
-    </select>
+	<resultMap id="logindto" type="com.daou.kr.dto.LoginDto">
+		<result property="usercd" column="usercd" />
+		<result property="username" column="username" />
+		<result property="isstilluser" column="isstilluser" />
+	</resultMap>
+
+	<select id="userVerify" parameterType="com.daou.kr.dto.LoginDto" resultType="boolean">
+		SELECT
+			CASE WHEN(COUNT(*) == 1) THEN 1 ELSE 0 END
+		FROM tbl_user
+		WHERE
+			usercd = #{usercd} AND
+			isstilluser = 1
+	</select>
+	
+	<select id="getUserName" parameterType="com.daou.kr.dto.LoginDto" resultType="string">
+		SELECT
+			username
+		FROM tbl_user
+		WHERE
+			usercd = #{usercd} AND
+			isstilluser = 1
+	</select>
 </mapper>
