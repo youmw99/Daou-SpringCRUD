@@ -1,4 +1,4 @@
-# Daou-SpringCRUD
+# SpringCRUD
 Spring Boot CRUD Sample
 
 # 개발 환경
