@@ -4,7 +4,7 @@ Spring Boot CRUD Sample
 # 개발 환경
 JAVA 14
 
-#DB파일
+# DB파일
 Daou-SpringCRUD/daouCRUD/daou.db
 
 # 프로젝트 확인 방법
