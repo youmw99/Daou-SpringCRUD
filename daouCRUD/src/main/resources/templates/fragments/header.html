@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
-    <div th:fragment="headerFragment" class="header navbar-fixed-top">
-		 <!--header 부분 code -->   
-    </div>
-    
+<div th:fragment="headerFragment" class="header navbar-fixed-top">
+	<div class="bg-dark py-5">
+		<div class="container px-4 px-lg-5 my-5">
+			<div class="text-center text-white">
+				<h1 class="display-4 text-white-50 fw-bolder" th:if="${username!=null}">환영합니다 <td
+						th:if="${username!=null}" th:text="${username}"></td>님</h1>
+			</div>
+		</div>
+	</div>
+</div>
+
 </html>

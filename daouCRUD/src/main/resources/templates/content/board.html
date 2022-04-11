@@ -4,38 +4,39 @@
 
 <head>
 	<title>Daou게시판</title>
+	<script th:src="@{/js/board.js}"></script>
 </head>
 
 <body>
 	<th:block layout:fragment="header" th:include="@{/fragments/header}"></th:block>
 	<div layout:fragment="content" class="content">
-		<!-- Header-->
-		<header class="bg-dark py-5">
-			<div class="container px-4 px-lg-5 my-5">
-				<div class="text-center text-white">
-					<h1 class="display-4 text-white-50 fw-bolder">환영합니다 [[${username}]]님</h1>
-				</div>
-			</div>
-		</header>
 		<!-- Section-->
 		<section class="py-5">
 			<div class="container px-4 px-lg-5">
 				<div class="row gx-4 gx-lg-5 justify-content-center">
-					<div class="col-md-10 col-lg-8 col-xl-7">
-						<button class="btn btn-lg btn-primary" type="button">게시글 작성하기</button>
+					<div class="col-md-10 col-lg-8 col-xl-7 text-truncate">
+						<div class="row">
+							<input class="form-control form-control-lg" id="newboarditem" type="text" placeholder="새 글을 작성">
+							<button class="btn btn-lg btn-primary" type="button" th:onclick="boardInsert([[${session.usercd}]])">게시글 작성하기</button>
+						</div>
+
 						<!-- Divider-->
 						<hr class="my-4" />
 						<tr th:each="items : ${boarditems}">
 							<!-- Post preview-->
 							<div class="post-preview">
-								<a th:href="@{/board/{num}(num=${items.boardid})}">
-									<h3 class="post-subtitle">
-										<td th:text="${items.board_content_txt}"></td>
-									</h3>
-								</a>
 								<p class="post-meta">
 									<td th:text="${items.usercd}"></td>
 								</p>
+								<br>
+								<a th:href="@{/boarddetail/{num}(num=${items.boardinc})}">
+									<h4 class="post-subtitle">
+										<td th:text="${items.board_content_txt}">...</td>
+									</h4>
+									<p class="post-meta">
+										...자세히 보기
+									</p>
+								</a>
 							</div>
 							<!-- Divider-->
 							<hr class="my-4" />

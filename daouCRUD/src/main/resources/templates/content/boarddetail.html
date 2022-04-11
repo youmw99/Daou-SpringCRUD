@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default_layout}">
+
+<head>
+	<title>Daou게시판 상세내용</title>
+	<script th:src="@{/js/boarddetail.js}"></script>
+</head>
+
+<body>
+	<th:block layout:fragment="header" th:include="@{/fragments/header}"></th:block>
+	<div layout:fragment="content" class="content">
+		<!-- Main Content-->
+		<main class="mb-4">
+			<div class="container px-4 px-lg-5">
+				<div class="row gx-4 gx-lg-5 justify-content-center">
+					<div class="col-md-10 col-lg-8 col-xl-7">
+						<h3>
+							유저 ID : <td th:text="${boarditem.usercd}"></td>
+						</h3>
+						<br class="my-4" />
+						<textarea class="form-control" id="boardcontent" rows="3"
+							th:text="${boarditem.board_content_txt}"
+							th:value="${boarditem.board_content_txt}"></textarea>
+					</div>
+				</div>
+				<div class="row gx-4 gx-lg-5 justify-content-center">
+					<button type="button" class="btn btn-success" th:onclick="boardUpdate([[${session.usercd}]])">수정하기</button>
+					<button type="button" class="btn btn-danger" th:onclick="boardDelete([[${session.boardid}]])">삭제하기</button>
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<body>
+		<th:block layout:fragment="footer" th:include="@{/fragments/footer}"></th:block>
+
+</html>

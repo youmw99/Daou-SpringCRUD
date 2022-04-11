@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,14 +31,14 @@ public class HomeController {
 		ModelAndView mav = new ModelAndView("content/home");
 
 		mav.addObject("logindto", new LoginDto());
-
 		return mav;
 	}
 
 	@PostMapping("/login")
-	public String login(LoginDto loginDto,RedirectAttributes redirect) throws IOException {
+	public String login(LoginDto loginDto,RedirectAttributes redirect,HttpServletRequest request) throws IOException {
 		if(loginService.checkUser(loginDto)) {
-			
+			HttpSession session = request.getSession(); // 세션을 생성
+			session.setAttribute("usercd", loginDto.getUsercd());
 			redirect.addAttribute("username",loginService.getUserName(loginDto));
 			return "redirect:board";
 		}

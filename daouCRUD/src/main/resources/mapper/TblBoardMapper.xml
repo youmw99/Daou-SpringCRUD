@@ -15,5 +15,23 @@
 		SELECT
 		*
 		FROM tbl_board
+		ORDER BY
+		boardinc DESC
 	</select>
+	<select id="getBoardItem" resultMap="boarddto">
+		SELECT
+		*
+		FROM tbl_board
+		WHERE
+		boardinc = #{value}
+		LIMIT 1
+	</select>
+	<insert id="insert" parameterType="com.daou.kr.dto.BoardInsertDto">
+		INSERT INTO tbl_board(boardid,usercd,board_content_txt) values(0,#{usercd},#{board_content_txt})
+	</insert>
+	<delete id="delete" parameterType="String">
+		DELETE
+		FROM tbl_board
+		WHERE boardinc = #{value}
+	</delete>
 </mapper>
