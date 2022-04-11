@@ -4,6 +4,9 @@ Spring Boot CRUD Sample
 # 개발 환경
 JAVA 14
 
+#DB파일
+Daou-SpringCRUD/daouCRUD/daou.db
+
 # 프로젝트 확인 방법
 1. STS(Spring Tool Suite)4 설치
 2. DaouCrudApplication 오른쪽 클릭 => Run As => Spring Boot App
