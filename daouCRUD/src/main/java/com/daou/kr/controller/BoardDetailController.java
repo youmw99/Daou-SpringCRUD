@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,10 +34,9 @@ public class BoardDetailController {
 	}
 	
 	@PostMapping("/board/update")
-	public ResponseEntity<FetchResultDto> boardUpdate(@RequestBody BoardDto boardDto) {
+	public ResponseEntity<HttpStatus> boardUpdate(@RequestBody BoardDto boardDto) {
 		boardDetailService.update(boardDto);
-		URI uri = URI.create("/board/");
-        return ResponseEntity.created(uri).build();
+        return ResponseEntity.ok(HttpStatus.OK);
 	}
 	
 	@PostMapping("/board/delete")

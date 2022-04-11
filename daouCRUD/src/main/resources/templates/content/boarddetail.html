@@ -25,7 +25,7 @@
 					</div>
 				</div>
 				<div class="row gx-4 gx-lg-5 justify-content-center">
-					<button type="button" class="btn btn-success" th:onclick="boardUpdate([[${session.usercd}]])">수정하기</button>
+					<button type="button" class="btn btn-success" th:onclick="boardUpdate([[${session.boardid}]])">수정하기</button>
 					<button type="button" class="btn btn-danger" th:onclick="boardDelete([[${session.boardid}]])">삭제하기</button>
 				</div>
 			</div>

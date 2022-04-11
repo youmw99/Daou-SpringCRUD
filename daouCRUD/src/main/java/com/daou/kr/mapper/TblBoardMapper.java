@@ -13,4 +13,5 @@ public interface TblBoardMapper {
 	BoardDto getBoardItem(String boardid);
 	void insert(BoardInsertDto boardInsertDto);
 	void delete(String boardid);
+	void update(BoardDto boardDto);
 }

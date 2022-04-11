@@ -21,7 +21,6 @@ public class BoardDetailService {
 	}
 
 	public void update(BoardDto boardDto) {
-		// TODO Auto-generated method stub
-		
+		tblBoardMapper.update(boardDto);
 	}
 }

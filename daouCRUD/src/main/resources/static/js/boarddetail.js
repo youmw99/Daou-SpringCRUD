@@ -1,14 +1,14 @@
 const BOARDDETAIL_URL = BASE_URL+"/boarddetail";
 const referrer = document.referrer;
 
-var boardUpdate = function(usercd){
+var boardUpdate = function(boardid){
 	const UPDATE_URL = "/update";
-	var board_content_txt = document.getElementById("newboarditem").value;
-	fetch(BOARD_URL+INSERT_URL,{
+	var board_content_txt = document.getElementById("boardcontent").value;
+	fetch(BOARD_URL+UPDATE_URL,{
 		method:"POST",
 		headers:{"Content-Type":"application/json"},
 		body:JSON.stringify({
-			usercd:usercd,
+			boardid:boardid,
 			board_content_txt:board_content_txt,
 		}),
 	}).then((response)=>{
